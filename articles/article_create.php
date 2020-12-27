@@ -7,7 +7,7 @@ $email = $title = $ingredients = '';
 $errors = array('title' => '', 'body' => '', 'slug' => '');
 
 if(isset($_POST['submit'])){
-
+  //TODO: Add validation for inputs. For example slug needs to be unique
   if(array_filter($errors)){
     //echo 'errors in form';
   } else {
