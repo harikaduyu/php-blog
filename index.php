@@ -1,6 +1,6 @@
 <?php
-
-	include('config/db_connect.php');
+	define('BASE_PATH', realpath(dirname(__FILE__)));
+	include(BASE_PATH . '/config/db_connect.php');
 
 	// write query for all pizzas
 	$sql = 'SELECT title, body, date FROM articles ORDER BY date';
@@ -15,6 +15,10 @@
 	mysqli_free_result($result);
 
 	// close connection
+	mysqli_close($conn);
+
+
+	//get a snippet from article body
 	function snippet($body){
 		return substr($body, 0, 50) . '...';
 	}
@@ -29,7 +33,7 @@
   <div class="articles">
 		<?php foreach($articles as $article): ?>
       <div class="article">
-        <h2><a href="#article-detail"><?php echo $article['title']; ?></a></h2>
+        <h2><a href="/php-blog/articles/article-detail.php"><?php echo $article['title']; ?></a></h2>
         <p><?php echo snippet($article['body']); ?></p>
         <p><?php echo $article['date']; ?></p>
         <p class="author">added by <?php echo 'h.duyu'; /*$article['author_id']*/  ?></p>
