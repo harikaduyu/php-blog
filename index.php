@@ -3,7 +3,7 @@
 	include(BASE_PATH . '/config/db_connect.php');
 
 	// write query for all pizzas
-	$sql = 'SELECT title, body, date FROM articles ORDER BY date';
+	$sql = 'SELECT title, body, date,slug FROM articles ORDER BY date';
 
 	// get the result set (set of rows)
 	$result = mysqli_query($conn, $sql);
@@ -33,7 +33,7 @@
   <div class="articles">
 		<?php foreach($articles as $article): ?>
       <div class="article">
-        <h2><a href="/php-blog/articles/article-detail.php"><?php echo $article['title']; ?></a></h2>
+        <h2><a href="/php-blog/articles/article_detail.php?slug=<?php echo $article['slug'];?>"><?php echo $article['title']; ?></a></h2>
         <p><?php echo snippet($article['body']); ?></p>
         <p><?php echo $article['date']; ?></p>
         <p class="author">added by <?php echo 'h.duyu'; /*$article['author_id']*/  ?></p>

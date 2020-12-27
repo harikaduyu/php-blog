@@ -27,20 +27,24 @@ if(isset($_GET['slug'])){
 ?>
 
 
-
 <!DOCTYPE html>
 <html>
 	
 	<?php include($_SERVER['DOCUMENT_ROOT'] .'/php-blog/templates/base_layout.php'); ?>
 
   <h1>Article Detail</h1>
+  <?php if(isset($article)): ?>
   <div class="article-detail">
       <div class="article">
         <img src="/php-blog/img/default.jpg" alt="">
         <h2><?php echo $article['title']; ?></a></h2>
         <p><?php echo $article['body']; ?></p>
         <p><?php echo $article['date']; ?></p>
-      </div>
+      
+  <?php else: ?>
+			<h2>Ooops. There is no such article. :( </h5>
+	<?php endif ?>
+    </div>
   </div>
 <!--footer-->
   </div>
