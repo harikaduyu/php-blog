@@ -24,7 +24,7 @@
           </form>
         </li>
         <li>
-          <a href="/articles/create/" class="highlight">New Article</a>
+          <a href="/php-blog/articles/article_create.php" class="highlight">New Article</a>
         </li>
 
         <?php else: ?>        

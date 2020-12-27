@@ -147,7 +147,7 @@ a.highlight {
   display: block;
 }
 
-.errorlist li {
+span .errorlist {
   padding: 10px;
   list-style-type: none;
   border: 1px solid #ff5722;
